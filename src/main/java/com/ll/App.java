@@ -22,11 +22,14 @@ class App {
             if (order.equals("종료")) {
                 break;
             }
-            else if (order.equals("등록")) {
+            else if (order.equals("등록")){
                 orderwrite();
             }
             else if (order.equals("목록")){
                 orderlist();
+            }
+            else if (order.startsWith("삭제")){
+                orderdelete(order);
             }
             else {
                 System.out.println("입력받은 명령) " + order + "(은)는 존재하지 않는 명령입니다.");
@@ -56,6 +59,22 @@ class App {
                 WSlist WS = WSlists.get(i);
                 System.out.println(WS.num + " / " + WS.content + " / " + WS.author);
             }
+        }
+    }
+    void orderdelete(String order){
+        String neworder = order.replace("삭제?id=", "");
+        int removenum = Integer.parseInt(neworder);
+        int count = 0;
+        for(int i = 0 ; i < WSlists.size() ; i++){
+            WSlist ws = WSlists.get(i);
+            if (removenum == ws.num){
+                WSlists.remove(i);
+                System.out.println("명언이 삭제되었습니다");
+                count++;
+            }
+        }
+        if (count == 0){
+            System.out.println("입력하신 번호의 명언이 없습니다.");
         }
     }
 }
