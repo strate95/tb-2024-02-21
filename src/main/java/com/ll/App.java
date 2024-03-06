@@ -24,19 +24,19 @@ class App {
             Rq rq = new Rq(order);
             System.out.println("입력받은 명령 : " + rq.getAction());
             System.out.println("입력받은 id : " + rq.getParamAsInt("id", 0));
-            switch (rq.getAction()){
-                case "종료" :
-                    return ;
-                case "등록" :
+            switch (rq.getAction()) {
+                case "종료":
+                    return;
+                case "등록":
                     orderwrite();
                     break;
-                case "목록" :
+                case "목록":
                     orderlist();
                     break;
-                case "삭제" :
+                case "삭제":
                     orderdelete(rq);
                     break;
-                case "수정" :
+                case "수정":
                     ordermodify(rq);
                     break;
             }
@@ -68,10 +68,10 @@ class App {
         }
     }
 
-    int getIndexofgoodsayingbyid(int id){
-        for(int i = 0 ; i < WSlists.size() ; i++){
+    int getIndexofgoodsayingbyid(int id) {
+        for (int i = 0; i < WSlists.size(); i++) {
             WSlist ws = WSlists.get(i);
-            if (ws.num == id){
+            if (ws.num == id) {
                 return i;
             }
         }
@@ -83,20 +83,29 @@ class App {
         int index = getIndexofgoodsayingbyid(removeid);
         if (index == -1) {
             System.out.println("입력하신 번호의 명언이 없습니다. 정확한 번호를 입력해 주세요");
-        }
-        else{
+        } else {
             WSlists.remove(index);
             System.out.println(removeid + "번 명언이 삭제되었습니다");
         }
     }
-    void ordermodify(Rq rq){
+
+    void ordermodify(Rq rq) {
         int modifyid = rq.getParamAsInt("id", 0);
         int index = getIndexofgoodsayingbyid(modifyid);
-        if (index == -1){
+        if (index == -1) {
             System.out.println("입력하신 번호의 명언이 없습니다. 정확한 번호를 입력해 주세요");
-        }
-        else{
-
+        } else {
+            WSlist ws = WSlists.get(index);
+            System.out.println("명언(기존) : " + ws.content);
+            System.out.print("수정할 명언 : ");
+            String newcontent = scanner.nextLine();
+            System.out.println("작가(기존) : " + ws.author);
+            System.out.print("수정할 작가 : ");
+            String newauthor = scanner.nextLine();
+            WSlist newws = new WSlist(modifyid, newcontent, newauthor);
+            WSlists.set(index, newws);
+            System.out.println("수정된 명언 : " + newcontent);
+            System.out.println("수정된 작가 : " + newauthor);
         }
     }
 }

@@ -8,6 +8,7 @@ class Rq {
     String action;
     String queryString;
     Map<String, String> paramsMap;
+
     Rq(String order) {
         paramsMap = new HashMap<>();
 
@@ -15,7 +16,7 @@ class Rq {
 
         String[] orderBits = order.split("\\?", 2);
         action = orderBits[0].trim();
-        if(orderBits.length == 1) {
+        if (orderBits.length == 1) {
             return;
         }
         queryString = orderBits[1].trim();
@@ -38,11 +39,10 @@ class Rq {
 
     public int getParamAsInt(String paramName, int defaultValue) {
         String paramValue = paramsMap.get(paramName);
-        if(paramValue != null){
-            try{
+        if (paramValue != null) {
+            try {
                 return Integer.parseInt(paramValue);
-            }
-            catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
 
             }
         }
