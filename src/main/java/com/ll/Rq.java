@@ -3,13 +3,13 @@ package com.ll;
 import java.util.HashMap;
 import java.util.Map;
 
-class Rq {
-    String order;
-    String action;
-    String queryString;
-    Map<String, String> paramsMap;
+public class Rq {
+    private String order;
+    private String action;
+    private String queryString;
+    private Map<String, String> paramsMap;
 
-    Rq(String order) {
+    public Rq(String order) {
         paramsMap = new HashMap<>();
 
         this.order = order;
@@ -33,7 +33,7 @@ class Rq {
         }
     }
 
-    String getAction() {
+    public String getAction() {
         return action;
     }
 

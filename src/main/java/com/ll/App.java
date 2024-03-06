@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-class App {
-    Scanner scanner;
-    int goodsaynum;
-    List<WSlist> WSlists;
+public class App {
+    private Scanner scanner;
+    private int goodsaynum;
+    private List<WSlist> WSlists;
 
-    App() {
+    public App() {
         scanner = new Scanner(System.in);
         goodsaynum = 1;
         WSlists = new ArrayList<>();
     }
 
-    void run() {
+    public void run() {
         System.out.println("프로그램 실행");
         System.out.println("== 명언 앱 ==");
         while (true) {
@@ -43,7 +43,7 @@ class App {
         }
     }
 
-    void orderwrite() {
+    private void orderwrite() {
         System.out.print("명언 : ");
         String contents = scanner.nextLine();
         System.out.print("작가 : ");
@@ -55,7 +55,7 @@ class App {
         System.out.println(goodsaynum++ + "번 명언이 등록되었습니다.");
     }
 
-    void orderlist() {
+    private void orderlist() {
         System.out.println("번호 / 작가 / 명언");
         System.out.println("---------------------------------------");
         if (WSlists.isEmpty()) {
@@ -68,7 +68,7 @@ class App {
         }
     }
 
-    int getIndexofgoodsayingbyid(int id) {
+    private int getIndexofgoodsayingbyid(int id) {
         for (int i = 0; i < WSlists.size(); i++) {
             WSlist ws = WSlists.get(i);
             if (ws.num == id) {
@@ -78,7 +78,7 @@ class App {
         return -1;
     }
 
-    void orderdelete(Rq rq) {
+    private void orderdelete(Rq rq) {
         int removeid = rq.getParamAsInt("id", 0);
         int index = getIndexofgoodsayingbyid(removeid);
         if (index == -1) {
@@ -89,7 +89,7 @@ class App {
         }
     }
 
-    void ordermodify(Rq rq) {
+    private void ordermodify(Rq rq) {
         int modifyid = rq.getParamAsInt("id", 0);
         int index = getIndexofgoodsayingbyid(modifyid);
         if (index == -1) {
@@ -104,8 +104,8 @@ class App {
             String newauthor = scanner.nextLine();
             WSlist newws = new WSlist(modifyid, newcontent, newauthor);
             WSlists.set(index, newws);
-            System.out.println("수정된 명언 : " + newcontent);
-            System.out.println("수정된 작가 : " + newauthor);
+            System.out.println("수정된 명언 : " + ws.content);
+            System.out.println("수정된 작가 : " + ws.author);
         }
     }
 }

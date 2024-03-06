@@ -1,9 +1,9 @@
 package com.ll;
 
 public class WSlist {
-    int num;
-    String content;
-    String author;
+    public int num;
+    public String content;
+    public String author;
 
     public WSlist(int num, String content, String author) {
         this.num = num;
