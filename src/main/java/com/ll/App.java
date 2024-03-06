@@ -1,5 +1,8 @@
 package com.ll;
 
+import com.ll.domain.Rq;
+import com.ll.domain.WSlist;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-package com.ll;
+package com.ll.domain;
 
 public class WSlist {
     public int num;

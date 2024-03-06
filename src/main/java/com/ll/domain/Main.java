@@ -1,4 +1,6 @@
-package com.ll;
+package com.ll.domain;
+
+import com.ll.App;
 
 public class Main {
     public static void main(String[] args) {
