@@ -1,5 +1,7 @@
 package com.ll.domain;
 
+import com.ll.standard_util.Ut;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,14 +40,6 @@ public class Rq {
     }
 
     public int getParamAsInt(String paramName, int defaultValue) {
-        String paramValue = paramsMap.get(paramName);
-        if (paramValue != null) {
-            try {
-                return Integer.parseInt(paramValue);
-            } catch (NumberFormatException e) {
-
-            }
-        }
-        return defaultValue;
+        return Ut.str.parseInt(paramsMap.get(paramName), defaultValue);
     }
 }
