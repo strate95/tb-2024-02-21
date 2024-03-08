@@ -68,7 +68,7 @@ public class App {
         } else {
             for (int i = WSlists.size() - 1; i >= 0; i--) {
                 WSlist WS = WSlists.get(i);
-                System.out.println(WS.getId()+ " / " + WS.getContent() + " / " + WS.getAuthor());
+                System.out.println(WS.getNum()+ " / " + WS.getContent() + " / " + WS.getAuthor());
             }
         }
     }
@@ -76,7 +76,7 @@ public class App {
     private int getIndexofgoodsayingbyid(int id) {
         for (int i = 0; i < WSlists.size(); i++) {
             WSlist ws = WSlists.get(i);
-            if (ws.getId() == id) {
+            if (ws.getNum() == id) {
                 return i;
             }
         }

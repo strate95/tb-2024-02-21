@@ -1,32 +1,17 @@
 package com.ll.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
+@AllArgsConstructor
 public class WSlist {
+    @Getter
     private int num;
+    @Getter
+    @Setter
     private String content;
+    @Getter
+    @Setter
     private String author;
-
-    public WSlist(int num, String content, String author) {
-        this.num = num;
-        this.content = content;
-        this.author = author;
-    }
-    public int getId() {
-        return num;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthorName(String author) {
-        this.author = author;
-    }
 }
